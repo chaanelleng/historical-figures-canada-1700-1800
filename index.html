@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voices of a Nation — Historical Figures & Research Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,opsz,wght@0,6..144,300;0,6..144,400;0,6..144,600;1,6..144,300;1,6..144,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1209;
+  --parchment: #f6edda;
+  --parchment-mid: #ecdfc0;
+  --parchment-deep: #d9c89a;
+  --red: #8b1a1a;
+  --gold: #b8860b;
+  --gold-light: #d4a520;
+  --blue-deep: #162840;
+  --green-deep: #14321e;
+  --brown: #5c3d1e;
+  --brown-light: #8b6340;
+
+  /* Character colours */
+  --c-acadian: #8b5e3c;
+  --c-mikmaq: #2e7d32;
+  --c-french: #162840;
+  --c-british: #8b1a1a;
+  --c-black: #4a148c;
+  --c-loyalist: #b45309;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: #f0e8d0;
+  color: var(--ink);
+  padding: 40px 20px 80px;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── HEADER ── */
+.header {
+  background: var(--blue-deep);
+  color: #e8d5a0;
+  padding: 40px 48px;
+  border-radius: 3px 3px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
+}
+
+.header-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  color: #f0e4c0;
+}
+
+.header h1 em { color: var(--gold-light); font-style: italic; }
+
+.header-sub {
+  font-style: italic;
+  font-size: 1rem;
+  color: #a89870;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.header-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.htag {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 2px;
+  padding: 3px 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8b880;
+}
+
+/* ── INTRO STRIP ── */
+.intro-strip {
+  background: var(--parchment);
+  border-left: 4px solid var(--gold);
+  padding: 20px 28px;
+  margin-bottom: 0;
+}
+
+.intro-strip p {
+  font-size: 0.97rem;
+  line-height: 1.72;
+  color: #3a2810;
+}
+
+.intro-strip strong { color: var(--red); }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  background: var(--parchment-mid);
+  border-top: 2px solid var(--parchment-deep);
+  border-bottom: 2px solid var(--parchment-deep);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-header-icon { font-size: 1.3rem; }
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.section-header p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* ── FIGURES GRID ── */
+.figures-section {
+  background: var(--parchment);
+  padding: 28px 28px;
+}
+
+.group-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--parchment-deep);
+}
+
+.group-label:first-child { margin-top: 0; }
+
+.group-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gc, #888);
+  flex-shrink: 0;
+}
+
+.group-label h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.group-label span {
+  font-size: 0.75rem;
+  color: var(--brown-light);
+  font-style: italic;
+}
+
+.figures-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+@media(max-width:620px) { .figures-grid { grid-template-columns: 1fr; } }
+
+.figure-card {
+  background: white;
+  border: 1px solid var(--parchment-deep);
+  border-radius: 3px;
+  padding: 16px 18px;
+  border-top: 3px solid var(--fc, var(--gold));
+  position: relative;
+}
+
+.fig-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.fig-dates {
+  font-size: 0.72rem;
+  color: var(--brown-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.fig-desc {
+  font-size: 0.87rem;
+  color: #3a2810;
+  line-height: 1.58;
+  margin-bottom: 10px;
+}
+
+.fig-research {
+  background: #f8f4ec;
+  border-left: 2px solid var(--fc, var(--gold));
+  padding: 7px 10px;
+  font-size: 0.8rem;
+  color: var(--brown);
+  line-height: 1.5;
+}
+
+.fig-research strong {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-light);
+  margin-bottom: 3px;
+}
+
+.monologue-tag {
+  display: inline-block;
+  background: #e8f4e8;
+  border: 1px solid #90c890;
+  color: #1a5c1a;
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 6px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ── PAIRINGS TABLE ── */
+.pairings-section {
+  background: var(--parchment);
+  padding: 0 28px 28px;
+  border-top: 1px solid var(--parchment-deep);
+}
+
+.pairing-card {
+  background: white;
+  border: 1px solid var(--parchment-deep);
+  border-radius: 3px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.pairing-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.pairing-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.badge-historical {
+  background: #e8f4e8;
+  color: #1a5c1a;
+  border: 1px solid #90c890;
+}
+
+.badge-imaginative {
+  background: #e8eef8;
+  color: #1a2e5c;
+  border: 1px solid #90a8d0;
+}
+
+.pairing-names {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.pairing-names .vs {
+  font-size: 0.7rem;
+  color: var(--brown-light);
+  font-weight: 400;
+  font-family: 'Crimson Pro', serif;
+  margin: 0 4px;
+  font-style: italic;
+}
+
+.pairing-tension {
+  font-size: 0.88rem;
+  color: #3a2810;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.pairing-prompt {
+  font-size: 0.83rem;
+  color: var(--brown);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.pairing-prompt::before { content: '"'; color: var(--gold); font-size: 1rem; }
+.pairing-prompt::after  { content: '"'; color: var(--gold); font-size: 1rem; }
+
+/* ── ASSIGNMENT BOX ── */
+.assignment-section {
+  background: var(--blue-deep);
+  padding: 28px 32px;
+  color: #e8d5a0;
+}
+
+.assignment-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.assign-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media(max-width:580px) { .assign-grid { grid-template-columns: 1fr; } }
+
+.assign-box {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 3px;
+  padding: 14px 16px;
+}
+
+.assign-box h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.assign-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.assign-box ul li {
+  font-size: 0.85rem;
+  color: #b8a87a;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  line-height: 1.5;
+}
+
+.assign-box ul li:last-child { border: none; }
+.assign-box ul li::before { content: '→ '; color: var(--gold-light); }
+
+/* ── RUBRIC ── */
+.rubric-section {
+  background: var(--parchment);
+  padding: 28px 28px;
+  border-top: 1px solid var(--parchment-deep);
+}
+
+.rubric-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.rubric-section .rubric-sub {
+  font-size: 0.85rem;
+  color: var(--brown-light);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.rubric-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.rubric-table th {
+  background: var(--blue-deep);
+  color: var(--gold-light);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #0e1f38;
+}
+
+.rubric-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--parchment-deep);
+  vertical-align: top;
+  line-height: 1.5;
+  color: #3a2810;
+}
+
+.rubric-table tr:nth-child(odd) td { background: white; }
+.rubric-table tr:nth-child(even) td { background: #fdfaf3; }
+
+.rubric-table td:first-child {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  width: 160px;
+}
+
+.rubric-table td.score-4 { background: #e8f4e8 !important; }
+.rubric-table td.score-3 { background: #f0f7e8 !important; }
+.rubric-table td.score-2 { background: #fdf8e8 !important; }
+.rubric-table td.score-1 { background: #fdf0e8 !important; }
+
+.rubric-table th.score-head { text-align: center; }
+
+.weight-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  padding: 1px 6px;
+  margin-left: 6px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+/* ── FOOTER ── */
+.doc-footer {
+  background: var(--parchment-mid);
+  border-top: 2px solid var(--parchment-deep);
+  padding: 16px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-radius: 0 0 3px 3px;
+}
+
+.doc-footer p { font-size: 0.75rem; color: var(--brown-light); font-style: italic; }
+
+/* ── PRINT ── */
+@media print {
+  body { background: white; padding: 0; }
+  .page { max-width: 100%; }
+  .header { border-radius: 0; }
+  .doc-footer { border-radius: 0; }
+  .no-print { display: none; }
+  .figure-card, .pairing-card, .assign-box { break-inside: avoid; }
+  .rubric-table { font-size: 0.76rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Voices of a Nation · Ontario Grade 7 History / Language / Drama</div>
+  <h1>Real <em>Voices</em> of History</h1>
+  <p class="header-sub">A curated research guide for the cross-curricular monologue and dialogue performance assignment — Canadian History 1713–1800.</p>
+  <div class="header-tags">
+    <span class="htag">History: Historical Perspective</span>
+    <span class="htag">Language: Oral Communication</span>
+    <span class="htag">Drama: Role & Character</span>
+    <span class="htag">14 Historical Figures</span>
+    <span class="htag">7 Suggested Pairings</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-strip">
+  <p>You have followed six fictional characters through three turning points in Canadian history. Now it is time to go deeper. Below are <strong>14 real people</strong> who lived through the same events. Choose one for a <strong>monologue</strong>, or choose two for a <strong>dialogue</strong>. Your job is to research your figure(s) carefully and bring their real voice — their fears, beliefs, contradictions, and humanity — to life.</p>
+</div>
+
+<!-- SECTION: FIGURES -->
+<div class="section-header">
+  <div class="section-header-icon">📜</div>
+  <div>
+    <h2>The 14 Historical Figures</h2>
+    <p>Organized by perspective. Each card includes a research starting point and a suggested monologue moment.</p>
+  </div>
+</div>
+
+<div class="figures-section">
+
+  <!-- ACADIAN -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#8b5e3c;"></div>
+    <h3>Acadian Perspective</h3>
+    <span>— Deportation, displacement, survival</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#8b5e3c;">
+      <div class="fig-name">Beausoleil Broussard</div>
+      <div class="fig-dates">c. 1702 – 1786 · Acadian guerrilla leader, Nova Scotia</div>
+      <div class="fig-desc">Led armed Acadian resistance against the British deportation. Captured twice, escaped twice. Eventually helped establish the Cajun community in Louisiana. One of the most defiant figures of the deportation era — a man who refused to accept expulsion as final.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Why did Broussard keep fighting when almost everyone else had surrendered? What did resistance mean to someone who had lost everything?
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Speaking to his people after capture, urging them not to give up</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#8b5e3c;">
+      <div class="fig-name">Pélagie LeBlanc</div>
+      <div class="fig-dates">Historical (fictionalized in Antonine Maillet's novel Pélagie-la-Charrette, 1979)</div>
+      <div class="fig-desc">While a literary figure rather than a documented individual, Pélagie represents the thousands of Acadian women who led families back to the Maritimes after the deportation. Maillet's novel — based on oral history — won the Prix Goncourt. Pélagie is considered a cultural icon of Acadian survival and is grounded in real collective memory.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        What was the actual Acadian return like? How did families navigate being refugees for decades? Research the real return journeys of Acadian families 1763–1790.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Returning to find her family's farmland occupied by strangers</span>
+    </div>
+  </div>
+
+  <!-- MI'KMAQ -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#2e7d32;"></div>
+    <h3>Mi'kmaq & Indigenous Perspectives</h3>
+    <span>— Sovereignty, treaty rights, displacement</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#2e7d32;">
+      <div class="fig-name">Chief Jean-Baptiste Cope</div>
+      <div class="fig-dates">c. 1690s – c. 1760 · Mi'kmaq Chief, Nova Scotia</div>
+      <div class="fig-desc">Signed the Treaty of 1752 with the British on behalf of the Shubenacadie Mi'kmaq — a Peace and Friendship Treaty that did not surrender land but recognized Mi'kmaq rights. When the British violated the treaty almost immediately, Cope felt the weight of having trusted them. A figure who tried diplomacy and watched it fail.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        What did the 1752 treaty actually say? Why did Cope sign it? What happened afterward that made the treaty meaningless in practice?
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Addressing British officials after the treaty has been broken</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#2e7d32;">
+      <div class="fig-name">Joseph Brant (Thayendanegea)</div>
+      <div class="fig-dates">1743 – 1807 · Mohawk Chief & British ally, Upper Canada</div>
+      <div class="fig-desc">One of the most complex figures of this era. A Mohawk leader who was educated in English, converted to Christianity, fought for the British during the American Revolution, translated the Bible into Mohawk, and then spent years fighting — mostly unsuccessfully — for Haudenosaunee land rights after the Loyalist migration pushed into his people's territory.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Brant is sometimes called a "collaborator" and sometimes a defender of his people. Was he both? Research the Grand River land negotiations and what Brant was actually trying to achieve.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Addressing British officials demanding the land grants he was promised</span>
+    </div>
+  </div>
+
+  <!-- FRENCH CANADIAN -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#162840;"></div>
+    <h3>French-Canadian Perspective</h3>
+    <span>— Conquest, survival of language and culture</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#162840;">
+      <div class="fig-name">Marie-Josephte Corriveau</div>
+      <div class="fig-dates">1733 – 1763 · French-Canadian, Québec</div>
+      <div class="fig-desc">Convicted of murdering her second husband and executed by British military court just after the conquest of New France. Her body was displayed in a gibbet (iron cage) in public — a practice unheard of in New France. She became a folk legend, a symbol of French-Canadian resistance to British authority. Her trial reveals how different British and French legal systems were.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Was Corriveau's trial fair? What does her story tell us about life for French Canadians under new British rule? Why did she become a legend?
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Speaking before the British court that will sentence her</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#162840;">
+      <div class="fig-name">Bishop Jean-Olivier Briand</div>
+      <div class="fig-dates">1715 – 1794 · Catholic Bishop of Québec</div>
+      <div class="fig-desc">Led the Catholic Church in Québec through the British conquest. Navigated an almost impossible position: maintaining the Church's authority under a Protestant British government, while keeping the loyalty of French-Canadian parishioners. He argued for accommodation with Britain rather than resistance — and was deeply controversial for doing so.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Should Briand have resisted British rule more openly, or was his strategy of accommodation the only realistic way to protect French-Canadian culture? Research the Quebec Act of 1774 and Briand's role in it.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Explaining to his congregation why they must accept British rule</span>
+    </div>
+  </div>
+
+  <!-- BRITISH -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#8b1a1a;"></div>
+    <h3>British Colonial Perspective</h3>
+    <span>— Empire, governance, moral complexity</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#8b1a1a;">
+      <div class="fig-name">Guy Carleton (Lord Dorchester)</div>
+      <div class="fig-dates">1724 – 1808 · Governor of Québec & Upper Canada</div>
+      <div class="fig-desc">British governor who championed the Quebec Act (1774), arguing that French Canadians should keep their language, religion, and laws under British rule. This was controversial in Britain and infuriated American colonists. Later governed during the Loyalist migration, where he also advocated for Black Loyalists' land rights — imperfectly, but more than most.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Why did Carleton, a British general, fight to protect French-Canadian culture? Was he genuinely principled, or was it political strategy? Research his arguments for the Quebec Act.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Defending the Quebec Act to critics in the British Parliament</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#8b1a1a;">
+      <div class="fig-name">John Graves Simcoe</div>
+      <div class="fig-dates">1752 – 1806 · First Lieutenant-Governor of Upper Canada</div>
+      <div class="fig-desc">Founded York (now Toronto), built Yonge Street, and — most significantly — passed the Act Against Slavery in Upper Canada in 1793. This was among the first anti-slavery legislation in the British Empire. He was a Loyalist military hero who turned out to have a genuine moral conviction on one of the era's darkest questions.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Simcoe's anti-slavery act was limited — it didn't free people already enslaved. Was it a real moral stand or a political compromise? Research what the act actually did and didn't do.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Announcing the anti-slavery act to the Upper Canada legislature</span>
+    </div>
+  </div>
+
+  <!-- BLACK LOYALIST -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#4a148c;"></div>
+    <h3>Black Loyalist & Enslaved Perspectives</h3>
+    <span>— Freedom, broken promises, resilience</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#4a148c;">
+      <div class="fig-name">David George</div>
+      <div class="fig-dates">c. 1742 – 1810 · Black Loyalist minister, Nova Scotia & Sierra Leone</div>
+      <div class="fig-desc">Born into slavery in Virginia. Escaped, became a Baptist preacher, arrived in Birchtown, Nova Scotia in 1783. Survived the Shelburne Riots when white Loyalists attacked the Black community. Eventually led a group of Black Loyalists to Sierra Leone in 1792, concluding that true equality was not available in Canada. A preacher who kept faith in God while losing faith in the British promise.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        David George wrote a memoir. Why did he eventually leave Canada? What did Birchtown actually look like — research the living conditions and compare them to what Black Loyalists were promised.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Preaching to his congregation in Birchtown after the Shelburne Riots</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#4a148c;">
+      <div class="fig-name">Black Loyalist Women of Birchtown</div>
+      <div class="fig-dates">1783 onward · Documented in the Book of Negroes</div>
+      <div class="fig-desc">The Book of Negroes (1783) is a real document — a British registry of over 3,000 Black Loyalists who boarded ships to Nova Scotia. It records names, ages, former enslavers, and brief physical descriptions. Women like Violet King, Mary Postell, and Nancy Freedom are listed by name. Their individual stories can be partially reconstructed from this document and historical records.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        Search the digitized Book of Negroes (Library and Archives Canada). Find a real woman's entry. What can you infer about her life from just a few words of description? Research what daily life in Birchtown was like for women.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: A woman describing her first winter in Birchtown to a friend</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#4a148c;">
+      <div class="fig-name">Chloe Cooley</div>
+      <div class="fig-dates">fl. 1793 · Enslaved woman, Upper Canada</div>
+      <div class="fig-desc">Chloe Cooley's name appears in history because of one act of resistance. When her enslaver forcibly transported her across the Niagara River to sell her to an American buyer, she screamed and fought back so visibly that witnesses reported it to Lieutenant-Governor Simcoe. Her resistance directly triggered Simcoe's Act Against Slavery (1793). She disappeared from the historical record after that — but her scream changed Canadian law.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        We know almost nothing about Chloe Cooley's life before or after this moment. Research what is documented. What does it mean that her one recorded act was an act of resistance? Why did Simcoe act?
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: The moment of resistance at the riverbank — what she was thinking</span>
+    </div>
+  </div>
+
+  <!-- LOYALIST SETTLER -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#b45309;"></div>
+    <h3>Loyalist Settler Perspective</h3>
+    <span>— Displacement, loyalty, building Upper Canada</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#b45309;">
+      <div class="fig-name">Barbara Heck</div>
+      <div class="fig-dates">1734 – 1804 · Loyalist settler & Methodist founder, Upper Canada</div>
+      <div class="fig-desc">An Irish-born Loyalist who had previously helped establish Methodism in New York, then fled to Upper Canada after the Revolution. Known as the "Mother of Methodism in Canada." She rebuilt her religious community from scratch in the wilderness, organizing worship before there were any church buildings. A woman who carried her faith across two migrations.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        What drove Heck to keep rebuilding her religious community after losing everything twice? Research what Loyalist life looked like in early Upper Canada — what did settlers actually face in the wilderness?
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Leading the first Methodist meeting in her new Upper Canada settlement</span>
+    </div>
+
+    <div class="figure-card" style="--fc:#b45309;">
+      <div class="fig-name">Peter Martin (Ohtowankannin)</div>
+      <div class="fig-dates">c. 1750 – 1847 · Mohawk Loyalist, Upper Canada</div>
+      <div class="fig-desc">A Mohawk man who served as an interpreter and scout for the British during the American Revolution. He occupied a unique position: an Indigenous man loyal to the British Crown, who then faced the same displacement as other Loyalists but with the added dimension of being from a nation whose land the Loyalists were being settled on. His story sits at the intersection of every major tension of this era.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        How did Mohawk Loyalists experience the Loyalist migration differently from white Loyalists? Research the Six Nations land at the Grand River — what were they promised, and what did they actually receive?
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Watching Loyalist settlers arrive on Haudenosaunee land</span>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL -->
+  <div class="group-label">
+    <div class="group-dot" style="--gc:#555;"></div>
+    <h3>Additional Voices</h3>
+    <span>— Jewish-Canadian & lesser-known perspectives</span>
+  </div>
+  <div class="figures-grid">
+    <div class="figure-card" style="--fc:#666;">
+      <div class="fig-name">Aaron Hart</div>
+      <div class="fig-dates">1724 – 1800 · Jewish-Canadian merchant, Trois-Rivières</div>
+      <div class="fig-desc">One of the first Jewish settlers in Canada, arriving in Trois-Rivières with the British army after the conquest. Became a successful merchant and fur trader. His family's story — navigating both French-Canadian and British colonial society as Jews — reveals a community rarely discussed in Canadian history. His son Ezekiel Hart was later elected to the Legislative Assembly but refused his seat because he would not swear a Christian oath.</div>
+      <div class="fig-research">
+        <strong>Research Hook</strong>
+        What was life like for Jewish people in post-conquest Québec? Research Aaron Hart's business dealings and his family's legal struggles for equal rights.
+      </div>
+      <span class="monologue-tag">💬 Monologue Moment: Explaining his decision to settle in Trois-Rivières to a skeptical relative</span>
+    </div>
+  </div>
+
+</div><!-- /figures-section -->
+
+<!-- SECTION: PAIRINGS -->
+<div class="section-header" style="margin-top:0; border-top:2px solid var(--parchment-deep);">
+  <div class="section-header-icon">🤝</div>
+  <div>
+    <h2>Suggested Dialogue Pairings</h2>
+    <p>Seven pairings — four historically grounded, three imaginative. Each has a central tension to explore.</p>
+  </div>
+</div>
+
+<div class="pairings-section">
+  <p style="font-size:0.88rem; color:var(--brown); font-style:italic; margin: 20px 0 20px;">
+    <strong style="font-style:normal; color:var(--ink);">How to read these:</strong>
+    "Historical" means these two people actually met or interacted. "Imaginative" means they lived in the same era and world but have no documented meeting — you must infer what they would say to each other based on research.
+  </p>
+
+  <!-- HISTORICAL PAIRINGS -->
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-historical">Historical</span></div>
+    <div>
+      <div class="pairing-names">Joseph Brant <span class="vs">in dialogue with</span> Guy Carleton</div>
+      <div class="pairing-tension">Brant negotiated directly with Carleton over Haudenosaunee land rights along the Grand River. Carleton made promises he could not fully keep. This dialogue sits at the heart of the tension between British good intentions and colonial reality.</div>
+      <div class="pairing-prompt">What do you owe me, Governor? I fought for your King. I gave up everything. You gave me a river and a promise — and now the settlers are crossing the river.</div>
+    </div>
+  </div>
+
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-historical">Historical</span></div>
+    <div>
+      <div class="pairing-names">Chloe Cooley <span class="vs">in dialogue with</span> John Graves Simcoe</div>
+      <div class="pairing-tension">Cooley's resistance was the direct trigger for Simcoe's anti-slavery act. They almost certainly never met — but their lives intersected with historic consequence. This pairing explores power, action, and who gets credit for change.</div>
+      <div class="pairing-prompt">You passed a law because of what you saw done to me. But the law didn't free me. So what, exactly, did you do for me?</div>
+    </div>
+  </div>
+
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-historical">Historical</span></div>
+    <div>
+      <div class="pairing-names">David George <span class="vs">in dialogue with</span> John Graves Simcoe</div>
+      <div class="pairing-tension">Simcoe's anti-slavery act came too late for most Black Loyalists already in Nova Scotia. George and the Birchtown community were living proof that legal freedom and actual equality were different things. This pairing asks: what does justice actually require?</div>
+      <div class="pairing-prompt">You freed the ones not yet born into slavery. But what about the ones already living in Birchtown, cheated of our land, attacked in our homes — what did your law do for us?</div>
+    </div>
+  </div>
+
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-historical">Historical</span></div>
+    <div>
+      <div class="pairing-names">Bishop Briand <span class="vs">in dialogue with</span> Marie-Josephte Corriveau</div>
+      <div class="pairing-tension">Briand advocated accommodation with British rule; Corriveau became a symbol of French resistance to it. Their worldviews are a direct collision: survival through cooperation versus resistance at any cost. (Note: they likely knew of each other given the small size of Québec society at the time.)</div>
+      <div class="pairing-prompt">You tell us to accept British law, Bishop. And British law put me in a cage for all of Québec to see. Is that your accommodation?</div>
+    </div>
+  </div>
+
+  <!-- IMAGINATIVE PAIRINGS -->
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-imaginative">Imaginative</span></div>
+    <div>
+      <div class="pairing-names">Beausoleil Broussard <span class="vs">in dialogue with</span> David George</div>
+      <div class="pairing-tension">Two men — one Acadian, one Black Loyalist — who both experienced violent displacement by the British Empire, both refused to accept defeat, and both eventually left for somewhere they hoped would be better. What would they say to each other about resistance, faith, and whether the fight was worth it?</div>
+      <div class="pairing-prompt">You fought the British with a musket. I fought them with a Bible and a congregation. Tell me — which of us did more damage?</div>
+    </div>
+  </div>
+
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-imaginative">Imaginative</span></div>
+    <div>
+      <div class="pairing-names">Chief Jean-Baptiste Cope <span class="vs">in dialogue with</span> Beausoleil Broussard</div>
+      <div class="pairing-tension">A Mi'kmaq chief who tried diplomacy and a French-Acadian who chose armed resistance — both dealing with the same British expansion, both watching it destroy their world. This pairing explores two different philosophies of response to colonial power.</div>
+      <div class="pairing-prompt">I signed a treaty. You took up arms. Neither of us stopped what happened. Tell me, Broussard — was there a right answer, or only two different ways of losing?</div>
+    </div>
+  </div>
+
+  <div class="pairing-card">
+    <div class="pairing-type"><span class="pairing-badge badge-imaginative">Imaginative</span></div>
+    <div>
+      <div class="pairing-names">Barbara Heck <span class="vs">in dialogue with</span> a Black Loyalist woman of Birchtown</div>
+      <div class="pairing-tension">Two women who arrived in the same colonial moment, both displaced, both starting over — one with a land grant and community support, one with a smaller grant, worse land, and neighbours who would eventually riot against her. Both called themselves Loyalists. What did that word mean differently to each of them?</div>
+      <div class="pairing-prompt">We came on the same ships. We are both Loyalists. We both built something from nothing in this wilderness. So why does everything I look at tell me we are not equal?</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ASSIGNMENT DETAILS -->
+<div class="assignment-section">
+  <h2>The Assignment</h2>
+  <div class="assign-grid">
+    <div class="assign-box">
+      <h4>📖 Option A — Monologue</h4>
+      <ul>
+        <li>Choose one historical figure</li>
+        <li>Research their life, beliefs, and historical moment</li>
+        <li>Write a 2–3 minute monologue in first person</li>
+        <li>Perform it for the class in character</li>
+        <li>Include a 1-page research summary (not performed)</li>
+      </ul>
+    </div>
+    <div class="assign-box">
+      <h4>🤝 Option B — Dialogue</h4>
+      <ul>
+        <li>Choose two figures (from suggested pairings or propose your own)</li>
+        <li>Each partner researches one figure independently</li>
+        <li>Write a 3–5 minute dialogue script together</li>
+        <li>Perform it for the class in character</li>
+        <li>Each partner submits their own 1-page research summary</li>
+      </ul>
+    </div>
+    <div class="assign-box">
+      <h4>📚 Research Requirements</h4>
+      <ul>
+        <li>At least 2 reliable sources (not Wikipedia as primary)</li>
+        <li>Must reference at least one real documented event or quote</li>
+        <li>Character's beliefs must be historically defensible</li>
+        <li>Research summary must cite your sources</li>
+      </ul>
+    </div>
+    <div class="assign-box">
+      <h4>🎭 Performance Requirements</h4>
+      <ul>
+        <li>Stay in character for the full performance</li>
+        <li>Use period-appropriate language (no slang)</li>
+        <li>Show the character's specific emotional truth</li>
+        <li>Speak to a real historical moment — not generic history</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- RUBRIC -->
+<div class="rubric-section">
+  <h2>Assessment Rubric</h2>
+  <p class="rubric-sub">Cross-curricular: History (Historical Perspective) · Language (Oral Communication) · Drama (Role & Character) — each weighted equally.</p>
+
+  <div style="overflow-x:auto;">
+  <table class="rubric-table">
+    <thead>
+      <tr>
+        <th>Strand / Criteria</th>
+        <th class="score-head">4 — Excellent</th>
+        <th class="score-head">3 — Proficient</th>
+        <th class="score-head">2 — Developing</th>
+        <th class="score-head">1 — Beginning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>📜 Historical Accuracy<br><small style="font-weight:400;font-size:0.72rem;color:var(--brown-light);">History</small></td>
+        <td class="score-4">Specific, documented events and beliefs accurately represented. Research is evident and woven naturally into the performance.</td>
+        <td class="score-3">Most key facts are accurate. One or two details may be imprecise but do not misrepresent the character's historical position.</td>
+        <td class="score-2">General accuracy, but character's historical moment is vague or generic. Little evidence of specific research.</td>
+        <td class="score-1">Significant historical errors or character's situation is not grounded in the period.</td>
+      </tr>
+      <tr>
+        <td>🌍 Historical Perspective<br><small style="font-weight:400;font-size:0.72rem;color:var(--brown-light);">History</small></td>
+        <td class="score-4">Character's worldview is fully inhabited — their fears, contradictions, and beliefs are specific to their time and position. Avoids projecting modern values.</td>
+        <td class="score-3">Character shows an understanding of their historical perspective with some depth. Minor modern anachronisms present.</td>
+        <td class="score-2">Character's perspective is present but surface-level. Some modern values projected onto historical figure.</td>
+        <td class="score-1">Little attempt to inhabit the character's actual historical worldview.</td>
+      </tr>
+      <tr>
+        <td>🗣️ Oral Communication<br><small style="font-weight:400;font-size:0.72rem;color:var(--brown-light);">Language</small></td>
+        <td class="score-4">Speaks clearly and with purpose. Language choices feel intentional and period-appropriate. Engages the audience with pace and emphasis.</td>
+        <td class="score-3">Communicates clearly. Some variation in pace and emphasis. Language is generally appropriate to the period.</td>
+        <td class="score-2">Communication is understandable but flat. Limited variation in delivery. Some anachronistic language.</td>
+        <td class="score-1">Difficult to follow. Reads directly from script with little engagement or vocal presence.</td>
+      </tr>
+      <tr>
+        <td>✍️ Writing Quality<br><small style="font-weight:400;font-size:0.72rem;color:var(--brown-light);">Language</small></td>
+        <td class="score-4">Script/monologue is well-structured, uses vivid and precise language, and builds to a clear emotional or argumentative point.</td>
+        <td class="score-3">Script is structured and clear. Language is appropriate. The character's main point comes through.</td>
+        <td class="score-2">Script is understandable but loosely structured. Language is basic. The character's point is unclear.</td>
+        <td class="score-1">Script lacks structure. Ideas are disconnected. Difficult to follow the character's perspective.</td>
+      </tr>
+      <tr>
+        <td>🎭 Role & Character<br><small style="font-weight:400;font-size:0.72rem;color:var(--brown-light);">Drama</small></td>
+        <td class="score-4">Fully commits to character. Physicality, voice, and emotional truth are consistent throughout. The audience believes the character, not the student.</td>
+        <td class="score-3">Character commitment is mostly sustained. Occasional breaks in role, but the overall performance is believable.</td>
+        <td class="score-2">Some commitment to character but frequently breaks role or seems unsure of the character's emotional truth.</td>
+        <td class="score-1">Little to no character commitment. Performs as themselves rather than as the historical figure.</td>
+      </tr>
+      <tr>
+        <td>💬 Dialogue (if applicable)<br><small style="font-weight:400;font-size:0.72rem;color:var(--brown-light);">Drama</small></td>
+        <td class="score-4">Characters genuinely listen and respond to each other. The tension of the historical relationship is palpable. The dialogue feels like a real encounter, not two separate monologues.</td>
+        <td class="score-3">Partners respond to each other meaningfully. Some moments of real tension. Mostly avoids talking "past" each other.</td>
+        <td class="score-2">Partners take turns speaking but do not always genuinely respond to what the other says. Feels like adjacent monologues.</td>
+        <td class="score-1">No real interaction between characters. Dialogue is two disconnected speeches.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <p>Voices of a Nation · Ontario Grade 7 · Canadian History 1713–1800</p>
+  <p class="no-print"><button onclick="window.print()" style="background:var(--blue-deep);color:#e8d5a0;border:none;padding:7px 18px;font-family:'Crimson Pro',serif;font-size:0.82rem;border-radius:2px;cursor:pointer;">🖨 Print This Guide</button></p>
+</div>
+
+</div><!-- /page -->
+</body>
+</html>
